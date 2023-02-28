@@ -3,6 +3,9 @@ import java.util.Random;
 public class Tarla {
     private int row;
     private int column;
+    private int blank;
+    String tarlaArr[][] = new String[row][column];
+    boolean mineArr[][] = new boolean[row][column];
 
 
     public Tarla(){
@@ -21,35 +24,34 @@ public class Tarla {
     public void setColumn(int column) {
         this.column = column;
     }
+    public int getBlank() {
+        return blank;
+    }
+
+    public void setBlank(int blank) {
+        this.blank = blank;
+    }
 
     public void set(int row, int column){
         this.setColumn(column);
         this.setRow(row);
+        this.setBlank((column * row * 3) / 4);
     }
 
     public void creatTarla(){
-        String tarlaArr[][] = new String[row][column];
-        boolean mineArr[][] = new boolean[row][column];
 
         for (int i = 0; i < tarlaArr.length; i++) {
             for (int j = 0; j < tarlaArr[i].length; j++) {
                 tarlaArr[i][j] = "-";
             }
         }
-
         for (int k = 0; k < (row * column) / 4; k++) {
-            for (int l = 0; l <= Math.random() * row; l++) {
-                for (int s = 0; s <= Math.random() * column; s++) {
-                    mineArr[l][s] = true;
-                }
-            }
+            Random rand = new Random();
+            mineArr[rand.nextInt(row)] [rand.nextInt(column)] = true;
         }
-        for (boolean[] bs : mineArr) {
-            for (boolean b : bs) {
-                System.out.println(b);
-            }
-        }
+    }
 
+    public void print(){
         for (String[] strings : tarlaArr) {
             for (String strings2 : strings) {
                 System.out.print(strings2 + " ");

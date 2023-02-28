@@ -21,8 +21,7 @@ public class Main {
         System.out.print("Choosen Difficulty : ");
         String diff = sc.nextLine();
 
-              
-    
+        
         if(diff.equals("Easy")){
             tarla.set(4, 4);
         }
