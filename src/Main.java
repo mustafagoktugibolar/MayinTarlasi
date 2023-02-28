@@ -4,7 +4,7 @@ public class Main {
     
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
-        Tarla tarla = new Tarla();
+        Field field = new Field();
 
         boolean isError = false;
 
@@ -21,21 +21,21 @@ public class Main {
         System.out.print("Choosen Difficulty : ");
         String diff = sc.nextLine();
 
-        
+
         if(diff.equals("Easy")){
-            tarla.set(4, 4);
+            field.set(4, 4);
         }
         else if(diff.equals("Normal")){
-            tarla.set(6, 6);
+            field.set(6, 6);
         }
         else if(diff.equals("Hard")){
-            tarla.set(8, 8);
+            field.set(8, 8);
         }
         else{
             isError = true;
         }
 
-        tarla.creatTarla();
+        field.creatField();
 
 
         if(isError){

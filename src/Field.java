@@ -1,14 +1,14 @@
 import java.util.Random;
 
-public class Tarla {
+public class Field {
     private int row;
     private int column;
     private int blank;
-    String tarlaArr[][] = new String[row][column];
+    String fieldArr[][] = new String[row][column];
     boolean mineArr[][] = new boolean[row][column];
 
 
-    public Tarla(){
+    public Field(){
 
     }
 
@@ -38,11 +38,11 @@ public class Tarla {
         this.setBlank((column * row * 3) / 4);
     }
 
-    public void creatTarla(){
+    public void creatField(){
 
-        for (int i = 0; i < tarlaArr.length; i++) {
-            for (int j = 0; j < tarlaArr[i].length; j++) {
-                tarlaArr[i][j] = "-";
+        for (int i = 0; i < fieldArr.length; i++) {
+            for (int j = 0; j < fieldArr[i].length; j++) {
+                fieldArr[i][j] = "-";
             }
         }
         for (int k = 0; k < (row * column) / 4; k++) {
@@ -52,7 +52,7 @@ public class Tarla {
     }
 
     public void print(){
-        for (String[] strings : tarlaArr) {
+        for (String[] strings : fieldArr) {
             for (String strings2 : strings) {
                 System.out.print(strings2 + " ");
             } 
