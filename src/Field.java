@@ -1,12 +1,11 @@
 import java.util.Random;
 
-public class Field {
+public class Field{
     private int row;
     private int column;
     private int blank;
-    String fieldArr[][] = new String[row][column];
-    boolean mineArr[][] = new boolean[row][column];
-
+    private String fieldArr[][];
+    private boolean mineArr[][];
 
     public Field(){
 
@@ -33,11 +32,17 @@ public class Field {
     }
 
     public void set(int row, int column){
+        //SET DIMENSIONS
         this.setColumn(column);
         this.setRow(row);
+        //SET ARRAYS
+        fieldArr = new String[row][column];
+        mineArr = new boolean[row][column];
+        //SET BLANK
         this.setBlank((column * row * 3) / 4);
     }
 
+    //USING THIS ONCE AT FIRST
     public void creatField(){
 
         for (int i = 0; i < fieldArr.length; i++) {
@@ -45,6 +50,7 @@ public class Field {
                 fieldArr[i][j] = "-";
             }
         }
+
         for (int k = 0; k < (row * column) / 4; k++) {
             Random rand = new Random();
             mineArr[rand.nextInt(row)] [rand.nextInt(column)] = true;
@@ -59,8 +65,4 @@ public class Field {
         System.out.println();    
         }
     }
-    
-    
-
-
 }
