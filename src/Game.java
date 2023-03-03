@@ -1,10 +1,9 @@
 import java.util.Scanner;
 
-public class Main { 
-    public static void main(String[] args) throws InterruptedException{
+public class Game {
+    public static void play() throws InterruptedException{
         Scanner sc = new Scanner(System.in);
         Field field = new Field();
-        
 
         boolean isError = false;
 
@@ -35,32 +34,15 @@ public class Main {
             isError = true;
         }
 
+
+        field.creatField();
+        
+       
+
+
         if(isError){
             System.out.println("Unvalid Process! Try Again");
             Thread.sleep(1000);
-        }        
-
-        field.creatField();
-
-        while(true){     
-            System.out.print("Row : ");
-            int row = sc.nextInt();
-            System.out.print("Column : ");
-            int column = sc.nextInt();
-
-            if(MineSweeper.isMine(row, column)){
-                System.out.println("BOOM!");
-                break;
-            }
-            else{
-                MineSweeper.check(row, column);
-                field.print();
-                
-            }
-            
         }
-
-        
-        
     }
 }

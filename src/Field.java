@@ -4,8 +4,9 @@ public class Field{
     private int row;
     private int column;
     private int blank;
-    private String fieldArr[][];
-    private boolean mineArr[][];
+    static String fieldArr[][];
+    static boolean mineArr[][];
+    
 
     public Field(){
 
@@ -55,6 +56,13 @@ public class Field{
             Random rand = new Random();
             mineArr[rand.nextInt(row)] [rand.nextInt(column)] = true;
         }
+        for (boolean[] bool : mineArr) {
+            for (boolean b : bool) {
+                System.out.print(b + " ");
+            }
+            System.out.println();
+        }
+        print();
     }
 
     public void print(){
