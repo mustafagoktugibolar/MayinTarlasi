@@ -3,7 +3,7 @@ import java.util.Random;
 public class Field{
     private int row;
     private int column;
-    private int blank;
+    static int blank;
     static String fieldArr[][];
     static boolean mineArr[][];
     
@@ -29,7 +29,7 @@ public class Field{
     }
 
     public void setBlank(int blank) {
-        this.blank = blank;
+        Field.blank = blank;
     }
 
     public void set(int row, int column){
@@ -55,12 +55,6 @@ public class Field{
         for (int k = 0; k < (row * column) / 4; k++) {
             Random rand = new Random();
             mineArr[rand.nextInt(row)] [rand.nextInt(column)] = true;
-        }
-        for (boolean[] bool : mineArr) {
-            for (boolean b : bool) {
-                System.out.print(b + " ");
-            }
-            System.out.println();
         }
         print();
     }

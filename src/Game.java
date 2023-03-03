@@ -1,7 +1,11 @@
 import java.util.Scanner;
 
 public class Game {
-    public static void play() throws InterruptedException{
+    
+    public Game() {
+    }
+
+    public void play() throws InterruptedException{
         Scanner sc = new Scanner(System.in);
         Field field = new Field();
 
@@ -37,7 +41,28 @@ public class Game {
 
         field.creatField();
         
-       
+        while(true){     
+            System.out.print("Row : ");
+            int row = sc.nextInt();
+            System.out.print("Column : ");
+            int column = sc.nextInt();
+
+            if(MineSweeper.isMine(row, column)){
+                System.out.println("BOOM!");
+                break;
+            }
+            else{
+                MineSweeper.check(row, column);
+                field.print();
+                
+                if(Field.blank == 0){
+                    System.out.println("You Won!");
+                    sc.close();
+                    break;
+                }
+            }
+            
+        }
 
 
         if(isError){
@@ -46,3 +71,4 @@ public class Game {
         }
     }
 }
+
