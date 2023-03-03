@@ -28,24 +28,24 @@ public class MineSweeper {
         int row = x;
         int column = y;
         
-        if(row - 2 < 0){
-            row = 1;
+        if(row < 2){
+            row = 2;
         }
  
-        if(column - 2 < 0){
-            column = 1;
+        if(column < 2){
+            column = 2;
         }
 
-        for (int i = row -1 ; i <= x + 1 ;  i++) {
-            for (int j = column -1; j <= y + 1; j++) {
+        for (int i = row - 1; i <= x;  i++) {
+            for (int j = column -1; j <= y; j++) {
                 if(isMine(i, j)){
                     counter++;
-                }
-                   
+                }       
             }
             
         }
-        Field.fieldArr[row -1][column - 1] = ("" + counter);
+        Field.fieldArr[x -1][y - 1] = ("" + counter);
+        Field.blank--;
         counter = 0;
         
     }
